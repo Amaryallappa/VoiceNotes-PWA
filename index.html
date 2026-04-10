@@ -542,7 +542,20 @@ function startRec(){
     liveT=it;
     document.getElementById('tbox').textContent=(finalT+it)||'Listening…';
   };
-  recog.onerror=()=>stopRec();recog.start();
+// If the browser auto-stops, but the user hasn't clicked stop, restart it
+  recog.onend = () => {
+    if (isRec) {
+      try { recog.start(); } catch(e) {}
+    }
+  };
+
+  // Ignore 'no-speech' pauses, only stop on real errors
+  recog.onerror = (e) => {
+    if (e.error === 'no-speech') return; 
+    stopRec();
+  };
+
+  recog.start();
   isRec=true;elapsed=0;
   tInt=setInterval(()=>{elapsed++;document.getElementById('rtm').textContent=fmt(elapsed);},1000);
   ['recBtn','rdot'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.add('on');});
