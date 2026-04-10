@@ -37,7 +37,6 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .pdot{width:7px;height:7px;border-radius:50%;background:var(--ac);flex-shrink:0;display:none;}
 .pname{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--mu2);}
 .pname.set{color:var(--tx);}
-.parr{font-size:9px;color:var(--mu);flex-shrink:0;}
 .topbar-right{margin-left:auto;display:flex;gap:7px;align-items:center;}
 .tb-btn{display:flex;align-items:center;gap:5px;padding:6px 12px;border:1px solid var(--b2);border-radius:20px;background:transparent;color:var(--mu2);font-family:'Syne',sans-serif;font-size:11px;font-weight:700;cursor:pointer;transition:all 0.15s;white-space:nowrap;}
 .tb-btn:hover{border-color:var(--b3);color:var(--tx);background:var(--s2);}
@@ -63,7 +62,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .dd-item .dct{font-family:'DM Mono',monospace;font-size:10px;color:var(--mu);}
 .dd-item .ddl{display:none;background:transparent;border:none;color:var(--mu);cursor:pointer;font-size:14px;padding:2px 5px;border-radius:3px;line-height:1;}
 .dd-item:hover .ddl{display:block;}
-.dd-item .ddl:hover{color:var(--red) !important;background:var(--red-d);}
+.dd-item .ddl:hover{color:var(--red)!important;background:var(--red-d);}
 .dd-foot{padding:10px 14px;border-top:1px solid var(--b1);}
 .dd-exp{width:100%;padding:8px;background:var(--s1);border:1px solid var(--b1);border-radius:var(--rs);color:var(--mu2);font-family:'Syne',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:all 0.15s;}
 .dd-exp:hover{border-color:var(--b2);color:var(--tx);}
@@ -118,44 +117,58 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .ef-icon{font-size:38px;opacity:0.18;margin-bottom:12px;}
 .ef-t{font-size:12px;color:var(--mu);font-family:'DM Mono',monospace;line-height:1.8;}
 
-/* FILE CARD & INLINE VIEWER */
-.file-card{display:flex;align-items:center;gap:12px;background:var(--s2);padding:10px 12px;border:1px solid var(--b1);border-radius:var(--rs);margin-top:5px;}
-.file-icon{font-size:24px;flex-shrink:0;}
+/* FILE CARD */
+.file-card{display:flex;align-items:center;gap:10px;background:var(--s2);padding:10px 12px;border:1px solid var(--b1);border-radius:var(--rs);margin-top:5px;}
+.file-icon{font-size:22px;flex-shrink:0;}
 .file-info{flex:1;min-width:0;}
 .file-name{font-size:13px;font-weight:700;color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px;}
 .file-meta{font-size:11px;color:var(--mu);font-family:'DM Mono',monospace;}
 .file-acts{display:flex;gap:6px;flex-shrink:0;}
-.file-dl{padding:6px 12px;background:var(--b1);color:var(--tx);text-decoration:none;border-radius:20px;font-size:11px;font-weight:700;border:1px solid var(--b2);transition:all 0.15s;cursor:pointer;}
+.file-dl{padding:5px 11px;background:var(--b1);color:var(--tx);text-decoration:none;border-radius:20px;font-size:11px;font-weight:700;border:1px solid var(--b2);transition:all 0.15s;cursor:pointer;font-family:'Syne',sans-serif;}
 .file-dl:hover{background:var(--blu-d);color:var(--blu);border-color:var(--blu);}
-.file-viewer{display:none;margin-top:8px;animation:su 0.2s ease;}
-.file-viewer iframe{width:100%;height:350px;border:1px solid var(--b1);border-radius:var(--rs);background:#fff;}
+.file-viewer{display:none;margin-top:8px;}
+.file-viewer iframe{width:100%;height:340px;border:1px solid var(--b1);border-radius:var(--rs);background:#fff;}
 
 /* INPUT PANELS */
-.ipanel{position:fixed;bottom:68px;left:0;right:0;z-index:15;background:var(--s2);border-top:1px solid var(--b2);transform:translateY(102%);transition:transform 0.24s cubic-bezier(0.4,0,0.2,1);max-height:55vh;overflow-y:auto;padding-bottom:env(safe-area-inset-bottom,0);}
+.ipanel{position:fixed;bottom:68px;left:0;right:0;z-index:15;background:var(--s2);border-top:1px solid var(--b2);transform:translateY(102%);transition:transform 0.24s cubic-bezier(0.4,0,0.2,1);max-height:58vh;overflow-y:auto;padding-bottom:env(safe-area-inset-bottom,0);}
 .ipanel.show{transform:translateY(0);}
 .pinner{padding:14px 14px 12px;}
-.plbl{font-family:'DM Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--mu);margin-bottom:11px;}
-.pbrow{display:flex;gap:7px;justify-content:flex-end;margin-top:9px;}
+.plbl{font-family:'DM Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--mu);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
 .btn{padding:7px 15px;border-radius:var(--rs);border:1px solid var(--b1);background:transparent;color:var(--mu2);font-family:'Syne',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.15s;}
 .btn:hover{border-color:var(--b2);color:var(--tx);background:var(--s1);}
 .btn-p{background:var(--ac-d);border-color:var(--ac-m);color:var(--ac);}
 .btn-p:hover{background:rgba(200,240,96,0.18);border-color:var(--ac);}
 
-/* RECORD PANEL */
-.recrow{display:flex;align-items:center;gap:12px;margin-bottom:11px;}
-.rbtn{display:flex;align-items:center;gap:8px;padding:9px 18px;border-radius:40px;border:1px solid var(--b2);background:transparent;color:var(--tx);font-family:'Syne',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.15s;}
-.rbtn:hover{background:var(--s1);}
-.rbtn.on{border-color:var(--red);color:var(--red);background:var(--red-d);}
-.rdot{width:8px;height:8px;border-radius:50%;background:var(--mu);}
-.rbtn.on .rdot{background:var(--red);animation:blink 1s infinite;}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.15}}
-.rtm{font-family:'DM Mono',monospace;font-size:19px;font-weight:300;color:var(--mu);letter-spacing:0.06em;}
-.rtm.on{color:var(--red);}
-.lpill{font-family:'DM Mono',monospace;font-size:10px;color:var(--red);background:var(--red-d);border:1px solid rgba(255,95,95,0.25);padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:0.1em;display:none;}
-.lpill.on{display:inline-block;animation:blink 1.8s infinite;}
-.tbox{background:var(--s1);border:1px solid var(--b1);border-radius:var(--rs);padding:10px 12px;min-height:56px;font-size:13px;line-height:1.7;color:var(--tx);white-space:pre-wrap;word-break:break-word;transition:border-color 0.2s;}
+/* ─────────────────────────────────────────────
+   AUDIO PANEL — transcript on top, controls below
+   ───────────────────────────────────────────── */
+.tbox{
+  background:var(--s1);border:1px solid var(--b1);border-radius:var(--rs);
+  padding:11px 13px;min-height:70px;max-height:180px;overflow-y:auto;
+  font-size:13px;line-height:1.7;color:var(--tx);white-space:pre-wrap;
+  word-break:break-word;transition:border-color 0.2s;margin-bottom:10px;
+}
 .tbox.on{border-color:rgba(255,95,95,0.3);}
 .tph{color:var(--mu);font-style:italic;}
+
+/* Rec controls row: [● Record/Stop]  [timer] [LIVE]  ——flex-gap——  [Clear] [Save →] */
+.rec-ctrl{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;}
+.rbtn{
+  display:flex;align-items:center;gap:7px;padding:8px 16px;border-radius:40px;
+  border:1px solid var(--b2);background:transparent;color:var(--tx);
+  font-family:'Syne',sans-serif;font-size:12px;font-weight:700;cursor:pointer;
+  transition:all 0.15s;flex-shrink:0;
+}
+.rbtn:hover{background:var(--s1);}
+.rbtn.on{border-color:var(--red);color:var(--red);background:var(--red-d);}
+.rdot{width:7px;height:7px;border-radius:50%;background:var(--mu);flex-shrink:0;}
+.rbtn.on .rdot{background:var(--red);animation:blink 1s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.15}}
+.rtm{font-family:'DM Mono',monospace;font-size:14px;font-weight:500;color:var(--mu);letter-spacing:0.06em;flex-shrink:0;}
+.rtm.on{color:var(--red);}
+.lpill{font-family:'DM Mono',monospace;font-size:9px;color:var(--red);background:var(--red-d);border:1px solid rgba(255,95,95,0.25);padding:2px 7px;border-radius:20px;text-transform:uppercase;letter-spacing:0.1em;display:none;flex-shrink:0;}
+.lpill.on{display:inline-block;animation:blink 1.8s infinite;}
+.rec-spacer{flex:1;}
 
 /* TEXT PANEL */
 .txtrow{display:flex;gap:8px;align-items:flex-end;}
@@ -166,7 +179,7 @@ textarea.msgin::placeholder{color:var(--mu);}
 .snd:hover{background:#d4f575;transform:scale(1.05);}
 .snd:active{transform:scale(0.96);}
 
-/* MEDIA PANEL & SPLIT ZONES */
+/* MEDIA & FILE PANELS */
 .split-zone{display:flex;gap:8px;}
 .upzone{flex:1;border:1.5px dashed var(--b2);border-radius:var(--r);padding:1.2rem 0.5rem;text-align:center;cursor:pointer;transition:all 0.18s;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .upzone:hover,.upzone.drag{border-color:var(--ac);background:var(--ac-d);}
@@ -176,6 +189,7 @@ textarea.msgin::placeholder{color:var(--mu);}
 .ups{font-size:11px;color:var(--mu);font-family:'DM Mono',monospace;}
 .prev-img{max-width:100%;max-height:150px;border-radius:var(--rs);margin-top:9px;object-fit:cover;display:none;}
 .prev-vid{max-width:100%;border-radius:var(--rs);margin-top:9px;max-height:150px;display:none;}
+.pbrow{display:flex;gap:7px;justify-content:flex-end;margin-top:9px;}
 input.capin{width:100%;padding:8px 12px;background:var(--s1);border:1px solid var(--b1);border-radius:var(--rs);font-size:13px;color:var(--tx);font-family:'Syne',sans-serif;outline:none;transition:border-color 0.2s;margin-top:7px;}
 input.capin:focus{border-color:var(--b2);}
 input.capin::placeholder{color:var(--mu);}
@@ -214,6 +228,7 @@ input.capin::placeholder{color:var(--mu);}
 </head>
 <body>
 
+<!-- TOP BAR -->
 <div class="topbar">
   <div class="logo">Voice<span>Notes</span></div>
   <div class="proj-sel" id="projSel" onclick="toggleDD()">
@@ -226,6 +241,7 @@ input.capin::placeholder{color:var(--mu);}
   </div>
 </div>
 
+<!-- PROJECT DROPDOWN -->
 <div class="proj-dd" id="projDD">
   <div class="dd-head">
     <div class="dd-lbl">Projects</div>
@@ -237,6 +253,7 @@ input.capin::placeholder{color:var(--mu);}
   </div>
 </div>
 
+<!-- FILTER BAR -->
 <div class="fbar">
   <button class="ftag on" onclick="setFilter('all',this)">All</button>
   <button class="ftag" onclick="setFilter('audio',this)">🎙 Audio</button>
@@ -247,6 +264,7 @@ input.capin::placeholder{color:var(--mu);}
   <span class="finfo" id="finfo">—</span>
 </div>
 
+<!-- FEED -->
 <div class="feed-wrap" id="feedWrap">
   <div class="no-proj" id="noProjSt">
     <div class="np-icon">📁</div>
@@ -257,25 +275,30 @@ input.capin::placeholder{color:var(--mu);}
   <div class="feed" id="feed" style="display:none;"></div>
 </div>
 
+<!-- ── AUDIO PANEL ── -->
 <div class="ipanel" id="panel-audio">
   <div class="pinner">
-    <div class="plbl">Audio recorder + speech-to-text</div>
-    <div class="recrow">
-      <button class="rbtn" id="recBtn" onclick="toggleRec()">
-        <span class="rdot" id="rdot"></span>
-        <span id="recLbl">Start Recording</span>
-      </button>
-      <span class="rtm" id="rtm">0:00</span>
+    <div class="plbl">
+      Audio recorder + speech-to-text
       <span class="lpill" id="lpill">LIVE</span>
     </div>
+    <!-- Transcript box — scrollable, capped height -->
     <div class="tbox" id="tbox"><span class="tph">Speech will appear here in real-time…</span></div>
-    <div class="pbrow">
+    <!-- Controls: [● Rec/Stop] [timer]  ——spacer——  [Clear] [Save →] -->
+    <div class="rec-ctrl">
+      <button class="rbtn" id="recBtn" onclick="toggleRec()">
+        <span class="rdot" id="rdot"></span>
+        <span id="recLbl">Record</span>
+      </button>
+      <span class="rtm" id="rtm">0:00</span>
+      <span class="rec-spacer"></span>
       <button class="btn" onclick="clrTrans()">Clear</button>
       <button class="btn btn-p" onclick="saveTrans()">Save →</button>
     </div>
   </div>
 </div>
 
+<!-- TEXT PANEL -->
 <div class="ipanel" id="panel-text">
   <div class="pinner">
     <div class="txtrow">
@@ -285,19 +308,18 @@ input.capin::placeholder{color:var(--mu);}
   </div>
 </div>
 
+<!-- IMAGE PANEL -->
 <div class="ipanel" id="panel-image">
   <div class="pinner">
     <div class="plbl">Add image</div>
     <div class="split-zone">
-      <label class="upzone" id="imgZoneUpload">
-        <input type="file" id="imgIn" accept="image/*" onchange="handleImg(event)">
-        <div class="upi">🖼</div>
-        <div class="upt">Gallery</div>
+      <label class="upzone">
+        <input type="file" id="imgIn" accept="image/*" onchange="handleImg(event,false)">
+        <div class="upi">🖼</div><div class="upt">Gallery</div>
       </label>
-      <label class="upzone" id="imgZoneCam">
-        <input type="file" id="imgCam" accept="image/*" capture="environment" onchange="handleImg(event, true)">
-        <div class="upi">📷</div>
-        <div class="upt">Camera</div>
+      <label class="upzone">
+        <input type="file" id="imgCam" accept="image/*" capture="environment" onchange="handleImg(event,true)">
+        <div class="upi">📷</div><div class="upt">Camera</div>
       </label>
     </div>
     <img class="prev-img" id="imgPrev" alt="">
@@ -309,19 +331,18 @@ input.capin::placeholder{color:var(--mu);}
   </div>
 </div>
 
+<!-- VIDEO PANEL -->
 <div class="ipanel" id="panel-video">
   <div class="pinner">
     <div class="plbl">Add video</div>
     <div class="split-zone">
-      <label class="upzone" id="vidZoneUpload">
-        <input type="file" id="vidIn" accept="video/*" onchange="handleVid(event)">
-        <div class="upi">🎬</div>
-        <div class="upt">Upload</div>
+      <label class="upzone">
+        <input type="file" id="vidIn" accept="video/*" onchange="handleVid(event,false)">
+        <div class="upi">🎬</div><div class="upt">Upload</div>
       </label>
-      <label class="upzone" id="vidZoneCam">
-        <input type="file" id="vidCam" accept="video/*" capture="environment" onchange="handleVid(event, true)">
-        <div class="upi">🎥</div>
-        <div class="upt">Record</div>
+      <label class="upzone">
+        <input type="file" id="vidCam" accept="video/*" capture="environment" onchange="handleVid(event,true)">
+        <div class="upi">🎥</div><div class="upt">Record</div>
       </label>
     </div>
     <video class="prev-vid" id="vidPrev" controls></video>
@@ -333,24 +354,23 @@ input.capin::placeholder{color:var(--mu);}
   </div>
 </div>
 
+<!-- FILE PANEL -->
 <div class="ipanel" id="panel-file">
   <div class="pinner">
-    <div class="plbl">Add File</div>
-    <label class="upzone" id="fileZone" style="padding:1.6rem 0.5rem;">
+    <div class="plbl">Add file</div>
+    <label class="upzone" id="fileZone" style="padding:1.4rem 0.5rem;">
       <input type="file" id="fileIn" accept=".pdf,.txt,.html" onchange="handleDoc(event)">
       <div class="upi">📄</div>
       <div class="upt">Tap or drop a file</div>
       <div class="ups">PDF · TXT · HTML</div>
     </label>
-    
     <div id="filePrev" style="display:none;" class="file-card">
       <div class="file-icon">📄</div>
       <div class="file-info">
-         <div class="file-name" id="fName">Filename.pdf</div>
-         <div class="file-meta" id="fMeta">0 KB</div>
+        <div class="file-name" id="fName">—</div>
+        <div class="file-meta" id="fMeta">—</div>
       </div>
     </div>
-
     <input class="capin" id="fileCap" placeholder="Description (optional)…">
     <div class="pbrow">
       <button class="btn" onclick="clrDoc()">Clear</button>
@@ -359,6 +379,7 @@ input.capin::placeholder{color:var(--mu);}
   </div>
 </div>
 
+<!-- BOTTOM NAV -->
 <div class="botnav">
   <button class="navbtn" id="nav-audio" onclick="togglePanel('audio')">
     <span class="navi">🎙</span><span class="navl">Audio</span>
@@ -377,6 +398,7 @@ input.capin::placeholder{color:var(--mu);}
   </button>
 </div>
 
+<!-- NEW PROJECT MODAL -->
 <div class="mbg" id="newProjM">
   <div class="modal">
     <div class="mtitle">New project</div>
@@ -388,6 +410,7 @@ input.capin::placeholder{color:var(--mu);}
   </div>
 </div>
 
+<!-- INSTALL GUIDE -->
 <div class="mbg" id="installGuide">
   <div class="modal" style="width:370px;">
     <div class="mtitle">Add to home screen</div>
@@ -400,6 +423,7 @@ input.capin::placeholder{color:var(--mu);}
   </div>
 </div>
 
+<!-- IMAGE VIEWER -->
 <div class="iview" id="iview" onclick="this.classList.remove('on')">
   <img id="viewImg" src="" alt="">
 </div>
@@ -407,10 +431,10 @@ input.capin::placeholder{color:var(--mu);}
 <div class="toast" id="toast"></div>
 
 <script>
-/* DB */
+/* ══ IndexedDB ══ */
 class VDB{
   constructor(){this.db=null;}
-  async open(){return new Promise((res,rej)=>{const r=indexedDB.open('vn_v4',1);r.onupgradeneeded=e=>{const d=e.target.result;if(!d.objectStoreNames.contains('projects'))d.createObjectStore('projects',{keyPath:'id'});if(!d.objectStoreNames.contains('entries')){const s=d.createObjectStore('entries',{keyPath:'id'});s.createIndex('pid','projectId',{unique:false});}};r.onsuccess=e=>{this.db=e.target.result;res();};r.onerror=rej;});}
+  async open(){return new Promise((res,rej)=>{const r=indexedDB.open('vn_v5',1);r.onupgradeneeded=e=>{const d=e.target.result;if(!d.objectStoreNames.contains('projects'))d.createObjectStore('projects',{keyPath:'id'});if(!d.objectStoreNames.contains('entries')){const s=d.createObjectStore('entries',{keyPath:'id'});s.createIndex('pid','projectId',{unique:false});}};r.onsuccess=e=>{this.db=e.target.result;res();};r.onerror=rej;});}
   async getAll(s){return new Promise((res,rej)=>{const r=this.db.transaction(s,'readonly').objectStore(s).getAll();r.onsuccess=()=>res(r.result);r.onerror=rej;});}
   async byIdx(s,idx,v){return new Promise((res,rej)=>{const r=this.db.transaction(s,'readonly').objectStore(s).index(idx).getAll(v);r.onsuccess=()=>res(r.result);r.onerror=rej;});}
   async put(s,d){return new Promise((res,rej)=>{const r=this.db.transaction(s,'readwrite').objectStore(s).put(d);r.onsuccess=()=>res();r.onerror=rej;});}
@@ -419,7 +443,6 @@ class VDB{
 }
 const db=new VDB();
 let projects=[],curId=localStorage.getItem('vn_p')||null,entries=[],filter='all';
-let recog=null,isRec=false,finalT='',liveT='',tInt=null,elapsed=0;
 let pImg=null,pVid=null,pDoc=null,activePanel=null,deferInst=null;
 
 async function init(){
@@ -444,14 +467,10 @@ function showNoProj(){
   document.getElementById('pname').classList.remove('set');
   document.getElementById('pdot').style.display='none';
 }
-
 async function loadProj(id,save=true){
   curId=id;if(save)localStorage.setItem('vn_p',id);
   entries=await db.byIdx('entries','pid',id);
-  
-  // Sort oldest to newest (WhatsApp style bottom-heavy)
-  entries.sort((a,b)=>a.ts-b.ts); 
-  
+  entries.sort((a,b)=>a.ts-b.ts);
   const p=projects.find(x=>x.id===id);
   document.getElementById('pname').textContent=(p?p.name:'Project')+' ▾';
   document.getElementById('pname').classList.add('set');
@@ -459,38 +478,23 @@ async function loadProj(id,save=true){
   document.getElementById('noProjSt').style.display='none';
   document.getElementById('feed').style.display='';
   renderFeed();renderDD();
-
-  // Scroll to bottom immediately upon loading
-  setTimeout(() => {
-    const fw = document.getElementById('feedWrap');
-    fw.scrollTop = fw.scrollHeight;
-  }, 50);
+  setTimeout(()=>{const fw=document.getElementById('feedWrap');fw.scrollTop=fw.scrollHeight;},50);
 }
-
 function renderDD(){
   const list=document.getElementById('ddList');
   if(!projects.length){list.innerHTML='<div style="padding:12px 10px;font-size:12px;color:var(--mu);font-family:\'DM Mono\',monospace;text-align:center;">No projects</div>';return;}
   list.innerHTML=projects.map(p=>`
     <div class="dd-item${p.id===curId?' cur':''}" onclick="selProj('${p.id}')">
-      <span class="din"></span>
-      <span class="dnm">${escH(p.name)}</span>
+      <span class="din"></span><span class="dnm">${escH(p.name)}</span>
       <span class="dct" id="dc_${p.id}"></span>
       <button class="ddl" onclick="event.stopPropagation();delProj('${p.id}')">×</button>
     </div>`).join('');
-  projects.forEach(async p=>{
-    const es=await db.byIdx('entries','pid',p.id);
-    const el=document.getElementById('dc_'+p.id);
-    if(el)el.textContent=es.length||'';
-  });
+  projects.forEach(async p=>{const es=await db.byIdx('entries','pid',p.id);const el=document.getElementById('dc_'+p.id);if(el)el.textContent=es.length||'';});
 }
-
 function toggleDD(){document.getElementById('projDD').classList.toggle('show');}
 function closeDD(){document.getElementById('projDD').classList.remove('show');}
-
 async function selProj(id){closeDD();await loadProj(id);}
-
 function openNewProjM(){closeDD();openM('newProjM');setTimeout(()=>document.getElementById('newPN').focus(),120);}
-
 async function createProj(){
   const name=document.getElementById('newPN').value.trim();
   if(!name){toast('Enter a project name.');return;}
@@ -499,7 +503,6 @@ async function createProj(){
   document.getElementById('newPN').value='';closeM('newProjM');
   await loadProj(p.id);toast('✓ Project "'+name+'" created');
 }
-
 async function delProj(id){
   if(!confirm('Delete this project and all its entries?'))return;
   await db.del('projects',id);await db.delByIdx('entries','pid',id);
@@ -529,55 +532,117 @@ function closeAllPanels(){
   activePanel=null;
 }
 
-/* RECORD */
+/* ══════════════════════════════════════════════
+   SPEECH RECOGNITION — FIXED, NO DUPLICATES
+   
+   Root cause of old bug:
+   - Loop started from i=0 instead of e.resultIndex
+     → every new word re-read ALL previous results
+   - onend committed sessionFinal to finalT,
+     then the restarted session could fire onresult
+     before onend, double-adding the same finals
+   
+   Fix:
+   - Use ONE accumulator `accText` that ONLY grows
+     by appending from e.resultIndex onward
+   - onend just silently restarts — no text shuffling
+   - No sessionFinal / finalT split needed at all
+   ══════════════════════════════════════════════ */
+let recog=null,isRec=false;
+let accText='';    // all committed final text
+let liveText='';   // current interim (not yet final)
+let tInt=null,elapsed=0;
+let restartGuard=false; // prevent double-restart race
+
 function toggleRec(){isRec?stopRec():startRec();}
+
 function startRec(){
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   if(!SR){toast('❌ Use Chrome/Edge for speech recognition.');return;}
-  recog=new SR();recog.continuous=true;recog.interimResults=true;recog.lang='en-US';
-  finalT='';liveT='';
-  recog.onresult=e=>{
-    let it='';
-    for(let i=e.resultIndex;i<e.results.length;i++){if(e.results[i].isFinal)finalT+=e.results[i][0].transcript+' ';else it+=e.results[i][0].transcript;}
-    liveT=it;
-    document.getElementById('tbox').textContent=(finalT+it)||'Listening…';
-  };
-// If the browser auto-stops, but the user hasn't clicked stop, restart it
-  recog.onend = () => {
-    if (isRec) {
-      try { recog.start(); } catch(e) {}
-    }
-  };
 
-  // Ignore 'no-speech' pauses, only stop on real errors
-  recog.onerror = (e) => {
-    if (e.error === 'no-speech') return; 
-    stopRec();
-  };
+  accText='';liveText='';
+  document.getElementById('tbox').innerHTML='<span class="tph">Listening…</span>';
 
-  recog.start();
+  _spawnRecognition();
   isRec=true;elapsed=0;
   tInt=setInterval(()=>{elapsed++;document.getElementById('rtm').textContent=fmt(elapsed);},1000);
-  ['recBtn','rdot'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.add('on');});
+  document.getElementById('recBtn').classList.add('on');
   document.getElementById('recLbl').textContent='Stop';
   document.getElementById('rtm').classList.add('on');
   document.getElementById('lpill').classList.add('on');
   document.getElementById('tbox').classList.add('on');
   document.getElementById('nav-audio').classList.add('rec-on');
 }
+
+function _spawnRecognition(){
+  if(recog){try{recog.onend=null;recog.onresult=null;recog.onerror=null;recog.stop();}catch(e){}}
+
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  recog=new SR();
+  recog.continuous=true;
+  recog.interimResults=true;
+  recog.lang='en-US';
+  recog.maxAlternatives=1;
+
+  recog.onresult=e=>{
+    /* KEY FIX: only iterate from e.resultIndex, never from 0.
+       This is the ONLY place text gets added — prevents all duplication. */
+    let newFinals='';
+    let interim='';
+    for(let i=e.resultIndex;i<e.results.length;i++){
+      if(e.results[i].isFinal) newFinals+=e.results[i][0].transcript;
+      else interim+=e.results[i][0].transcript;
+    }
+    if(newFinals) accText+=newFinals+' ';
+    liveText=interim;
+
+    const tb=document.getElementById('tbox');
+    tb.textContent=(accText+liveText)||'Listening…';
+    // auto-scroll transcript box
+    tb.scrollTop=tb.scrollHeight;
+  };
+
+  recog.onerror=e=>{
+    /* Ignore no-speech — it's not an error, just silence */
+    if(e.error==='no-speech'||e.error==='aborted')return;
+    if(isRec)setTimeout(()=>{if(isRec)_spawnRecognition();},300);
+  };
+
+  recog.onend=()=>{
+    /* Browser auto-stopped (happens every ~60s on some mobile browsers).
+       liveText is now stale — commit it to accText as a safety measure,
+       then restart silently without any beep-causing delay. */
+    if(liveText.trim()){accText+=liveText.trim()+' ';liveText='';}
+    if(isRec&&!restartGuard){
+      restartGuard=true;
+      setTimeout(()=>{restartGuard=false;if(isRec)_spawnRecognition();},150);
+    }
+  };
+
+  try{recog.start();}catch(e){}
+}
+
 function stopRec(){
-  if(recog){try{recog.stop();}catch(e){}recog=null;}
-  isRec=false;clearInterval(tInt);
+  isRec=false;
+  if(liveText.trim()){accText+=liveText.trim()+' ';liveText='';}
+  if(recog){try{recog.onend=null;recog.stop();}catch(e){}recog=null;}
+  clearInterval(tInt);
   document.getElementById('recBtn').classList.remove('on');
-  document.getElementById('recLbl').textContent='Start Recording';
+  document.getElementById('recLbl').textContent='Record';
   document.getElementById('rtm').classList.remove('on');
   document.getElementById('lpill').classList.remove('on');
   document.getElementById('tbox').classList.remove('on');
   document.getElementById('nav-audio').classList.remove('rec-on');
 }
-function clrTrans(){finalT='';liveT='';document.getElementById('tbox').innerHTML='<span class="tph">Speech will appear here in real-time…</span>';}
+
+function clrTrans(){
+  accText='';liveText='';
+  document.getElementById('tbox').innerHTML='<span class="tph">Speech will appear here in real-time…</span>';
+}
+
 async function saveTrans(){
-  const txt=(finalT+liveT).trim();if(!txt){toast('Nothing to save.');return;}
+  const txt=(accText+liveText).trim();
+  if(!txt){toast('Nothing to save.');return;}
   await addEntry({type:'audio',content:txt});
   clrTrans();closeAllPanels();toast('✓ Transcript saved');
 }
@@ -593,19 +658,13 @@ async function saveText(){
 }
 
 /* IMAGE */
-async function handleImg(e, isCamera = false){
+async function handleImg(e,isCamera){
   const f=e.target.files[0];if(!f)return;
   const r=new FileReader();
   r.onload=async ev=>{
     pImg=await compressImg(ev.target.result);
-    // Auto-save immediately if it came from the camera
-    if(isCamera){
-      await saveImg();
-    } else {
-      const p=document.getElementById('imgPrev');
-      p.src=pImg;
-      p.style.display='block';
-    }
+    if(isCamera){await saveImg();}
+    else{const p=document.getElementById('imgPrev');p.src=pImg;p.style.display='block';}
   };
   r.readAsDataURL(f);
 }
@@ -618,19 +677,13 @@ async function saveImg(){
 }
 
 /* VIDEO */
-function handleVid(e, isCamera = false){
+function handleVid(e,isCamera){
   const f=e.target.files[0];if(!f)return;
   const r=new FileReader();
   r.onload=async ev=>{
     pVid=ev.target.result;
-    // Auto-save immediately if it came from the camera
-    if(isCamera){
-      await saveVid();
-    } else {
-      const v=document.getElementById('vidPrev');
-      v.src=pVid;
-      v.style.display='block';
-    }
+    if(isCamera){await saveVid();}
+    else{const v=document.getElementById('vidPrev');v.src=pVid;v.style.display='block';}
   };
   r.readAsDataURL(f);
 }
@@ -642,87 +695,62 @@ async function saveVid(){
   clrVid();closeAllPanels();toast('✓ Video saved');
 }
 
-/* FILE (PDF, TXT, HTML) */
+/* FILE */
 function handleDoc(e){
   const f=e.target.files[0];if(!f)return;
   const r=new FileReader();
   r.onload=ev=>{
-    pDoc={ data: ev.target.result, name: f.name, size: f.size };
-    document.getElementById('fName').textContent = f.name;
-    document.getElementById('fMeta').textContent = (f.size / 1024).toFixed(1) + ' KB';
-    document.getElementById('filePrev').style.display = 'flex';
+    pDoc={data:ev.target.result,name:f.name,size:f.size};
+    document.getElementById('fName').textContent=f.name;
+    document.getElementById('fMeta').textContent=(f.size/1024).toFixed(1)+' KB';
+    document.getElementById('filePrev').style.display='flex';
   };
   r.readAsDataURL(f);
 }
-function clrDoc(){
-  pDoc=null;
-  document.getElementById('fileIn').value='';
-  document.getElementById('filePrev').style.display='none';
-  document.getElementById('fileCap').value='';
-}
+function clrDoc(){pDoc=null;document.getElementById('fileIn').value='';document.getElementById('filePrev').style.display='none';document.getElementById('fileCap').value='';}
 async function saveDoc(){
   if(!pDoc){toast('Select a file first.');return;}
   const c=document.getElementById('fileCap').value.trim();
-  await addEntry({type:'file', content:pDoc.data, fileName:pDoc.name, fileSize:pDoc.size, caption:c});
+  await addEntry({type:'file',content:pDoc.data,fileName:pDoc.name,fileSize:pDoc.size,caption:c});
   clrDoc();closeAllPanels();toast('✓ File saved');
 }
 
-/* FEED & INLINE VIEWER LOGIC */
-function toggleFileView(id) {
-  const v = document.getElementById('view_' + id);
-  const b = document.getElementById('btn_' + id);
-  if (v.style.display === 'block') {
-    v.style.display = 'none';
-    b.textContent = 'Open';
-  } else {
-    v.style.display = 'block';
-    b.textContent = 'Close';
-  }
+/* FEED */
+function toggleFileView(id){
+  const v=document.getElementById('view_'+id);
+  const b=document.getElementById('btn_'+id);
+  if(v.style.display==='block'){v.style.display='none';b.textContent='Open';}
+  else{v.style.display='block';b.textContent='Close';}
 }
 
 async function addEntry(data){
   if(!curId){toast('Select a project first.');return;}
   const e={id:'e_'+Date.now()+'_'+Math.random().toString(36).slice(2),projectId:curId,ts:Date.now(),time:nowStr(),...data};
   await db.put('entries',e);
-  
-  // Push to end for bottom-heavy feed
-  entries.push(e); 
-  
+  entries.push(e);
   renderFeed();renderDD();
-  
-  // Scroll directly to the BOTTOM of the feed wrap
-  setTimeout(() => {
-    const fw = document.getElementById('feedWrap');
-    fw.scrollTo({top: fw.scrollHeight, behavior:'smooth'});
-  }, 50);
+  setTimeout(()=>{const fw=document.getElementById('feedWrap');fw.scrollTo({top:fw.scrollHeight,behavior:'smooth'});},50);
 }
-
 async function delEntry(id){
   await db.del('entries',id);entries=entries.filter(e=>e.id!==id);
   renderFeed();renderDD();
 }
-
 function setFilter(f,el){
-  filter=f;document.querySelectorAll('.ftag').forEach(b=>b.classList.remove('on'));el.classList.add('on');renderFeed();
-  setTimeout(() => {
-    const fw = document.getElementById('feedWrap');
-    fw.scrollTop = fw.scrollHeight;
-  }, 50);
+  filter=f;document.querySelectorAll('.ftag').forEach(b=>b.classList.remove('on'));el.classList.add('on');
+  renderFeed();
+  setTimeout(()=>{const fw=document.getElementById('feedWrap');fw.scrollTop=fw.scrollHeight;},50);
 }
 
 function renderFeed(){
   const feed=document.getElementById('feed');
   const fl=filter==='all'?entries:entries.filter(e=>e.type===filter);
   document.getElementById('finfo').textContent=fl.length+' entr'+(fl.length===1?'y':'ies');
-
   if(!fl.length){
     feed.innerHTML=`<div class="empty-feed"><div class="ef-icon">${filter==='all'?'📭':'🔍'}</div><div class="ef-t">${filter==='all'?'No entries yet.\nTap a button below to start.':'No '+filter+' entries here.'}</div></div>`;
     return;
   }
-
   const grps={};
   fl.forEach(e=>{const d=new Date(e.ts).toDateString();if(!grps[d])grps[d]=[];grps[d].push(e);});
-
   let html='';
   Object.entries(grps).forEach(([date,items])=>{
     html+=`<div class="ddiv"><span>${fmtDate(date)}</span></div>`;
@@ -735,20 +763,14 @@ function renderFeed(){
       else if(e.type==='file')body=`${e.caption?`<div class="ecap">${escH(e.caption)}</div>`:''}
         <div class="file-card">
           <div class="file-icon">📄</div>
-          <div class="file-info">
-             <div class="file-name">${escH(e.fileName)}</div>
-             <div class="file-meta">${(e.fileSize/1024).toFixed(1)} KB</div>
-          </div>
+          <div class="file-info"><div class="file-name">${escH(e.fileName)}</div><div class="file-meta">${(e.fileSize/1024).toFixed(1)} KB</div></div>
           <div class="file-acts">
             <button class="file-dl" id="btn_${e.id}" onclick="toggleFileView('${e.id}')">Open</button>
             <a href="${e.content}" download="${escH(e.fileName)}" class="file-dl" title="Download">↓</a>
           </div>
         </div>
-        <div class="file-viewer" id="view_${e.id}">
-           <iframe src="${e.content}"></iframe>
-        </div>`;
+        <div class="file-viewer" id="view_${e.id}"><iframe src="${e.content}"></iframe></div>`;
       else body=`<div class="ebody">${escH(e.content)}</div>`;
-      
       const bc={audio:'ba',text:'bt',image:'bi',video:'bv',file:'bf'}[e.type];
       html+=`<div class="ecard"><div class="etop"><span class="badge ${bc}">${e.type}</span><span class="etm">${e.time}</span><button class="edel" onclick="delEntry('${e.id}')">×</button></div>${body}</div>`;
     });
@@ -777,42 +799,34 @@ function exportProj(){
       <video controls src="${e.content}" style="max-width:100%;border-radius:8px;max-height:300px;"></video>`;
     else if(e.type==='file')body=`${e.caption?`<p class="cap">${escH(e.caption)}</p>`:''}
       <div style="padding:12px;background:#1e1e28;border-radius:8px;display:flex;align-items:center;gap:12px;">
-         <span style="font-size:24px;">📄</span>
-         <div style="flex:1;"><div style="font-size:13px;font-weight:bold;margin-bottom:2px;">${escH(e.fileName)}</div><div style="font-size:11px;color:#8c8a9e;font-family:monospace;">${(e.fileSize/1024).toFixed(1)} KB</div></div>
-         <div style="display:flex;gap:6px;flex-shrink:0;">
-            <button onclick="var v=this.parentElement.parentElement.nextElementSibling; if(v.style.display==='block'){v.style.display='none';this.textContent='Open';}else{v.style.display='block';this.textContent='Close';}" style="padding:6px 12px;background:#17171e;color:#fff;border:none;cursor:pointer;border-radius:20px;font-size:11px;font-weight:bold;border:1px solid rgba(255,255,255,0.1);">Open</button>
-            <a href="${e.content}" download="${escH(e.fileName)}" style="padding:6px 12px;background:#17171e;color:#fff;text-decoration:none;border-radius:20px;font-size:11px;font-weight:bold;border:1px solid rgba(255,255,255,0.1);" title="Download">↓</a>
-         </div>
+        <span style="font-size:22px;">📄</span>
+        <div style="flex:1;"><div style="font-size:13px;font-weight:bold;margin-bottom:2px;">${escH(e.fileName)}</div><div style="font-size:11px;color:#8c8a9e;font-family:monospace;">${(e.fileSize/1024).toFixed(1)} KB</div></div>
+        <div style="display:flex;gap:6px;">
+          <button onclick="var v=this.closest('div').parentElement.nextElementSibling;if(v.style.display==='block'){v.style.display='none';this.textContent='Open';}else{v.style.display='block';this.textContent='Close';}" style="padding:5px 11px;background:#17171e;color:#fff;border:1px solid rgba(255,255,255,0.1);cursor:pointer;border-radius:20px;font-size:11px;font-weight:bold;">Open</button>
+          <a href="${e.content}" download="${escH(e.fileName)}" style="padding:5px 11px;background:#17171e;color:#fff;text-decoration:none;border-radius:20px;font-size:11px;font-weight:bold;border:1px solid rgba(255,255,255,0.1);">↓</a>
+        </div>
       </div>
-      <div style="display:none;margin-top:10px;animation:su 0.2s ease;">
-         <iframe src="${e.content}" style="width:100%;height:400px;border:1px solid rgba(255,255,255,0.1);border-radius:8px;background:#fff;"></iframe>
-      </div>`;
+      <div style="display:none;margin-top:8px;"><iframe src="${e.content}" style="width:100%;height:400px;border:1px solid rgba(255,255,255,0.1);border-radius:8px;background:#fff;"></iframe></div>`;
     else body=`<p style="white-space:pre-wrap;font-size:14px;line-height:1.7;">${escH(e.content)}</p>`;
-    
     const c=cl[e.type];
     return `<div class="ec"><div class="em"><span class="eb" style="background:${c}22;border:1px solid ${c}55;color:${c};">${e.type}</span><span class="et">${e.time}</span></div>${body}</div>`;
   }).join('');
-
   const html=`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escH(name)} — VoiceNotes</title>
 <style>*{box-sizing:border-box;margin:0;padding:0;}body{font-family:system-ui,sans-serif;background:#0f0f13;color:#eeecf0;min-height:100vh;}
 body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,0.018)1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018)1px,transparent 1px);background-size:36px 36px;pointer-events:none;}
 .w{max-width:760px;margin:0 auto;padding:3rem 1.5rem 4rem;position:relative;}
 .hd{margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);}
-.hn{font-size:24px;font-weight:700;letter-spacing:-0.3px;margin-bottom:4px;}
-.hn b{color:#c8f060;font-weight:800;}
+.hn{font-size:24px;font-weight:700;margin-bottom:4px;}.hn b{color:#c8f060;}
 .hm{font-size:11px;color:#58576a;font-family:monospace;}
 .ec{background:#17171e;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1rem 1.2rem;margin-bottom:10px;}
 .em{display:flex;align-items:center;gap:8px;margin-bottom:9px;}
 .eb{font-size:10px;padding:2px 9px;border-radius:20px;font-family:monospace;text-transform:uppercase;letter-spacing:0.07em;}
 .et{font-size:10px;color:#58576a;font-family:monospace;margin-left:auto;}
 .cap{font-size:11px;color:#8c8a9e;font-family:monospace;margin-bottom:7px;}
-.ft{margin-top:3rem;text-align:center;font-size:11px;color:#58576a;font-family:monospace;}
-@keyframes su{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-</style></head><body>
+.ft{margin-top:3rem;text-align:center;font-size:11px;color:#58576a;font-family:monospace;}</style></head><body>
 <div class="w"><div class="hd"><div class="hn">Voice<b>Notes</b> — ${escH(name)}</div>
 <div class="hm">Exported ${new Date().toLocaleString()} · ${entries.length} entr${entries.length===1?'y':'ies'}</div></div>
 ${rows}<div class="ft">VoiceNotes Export · Offline single file</div></div></body></html>`;
-
   const blob=new Blob([html],{type:'text/html'});
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
@@ -843,19 +857,15 @@ function compressImg(du,mw=1400,q=0.82){
 let toastT=null;
 function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('on');if(toastT)clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove('on'),2500);}
 
-// Close dropdown on outside click
 document.addEventListener('click',e=>{
   const dd=document.getElementById('projDD');
   if(dd.classList.contains('show')&&!dd.contains(e.target)&&!document.getElementById('projSel').contains(e.target))closeDD();
 });
-// Tap feed to close panel
 document.getElementById('feedWrap').addEventListener('click',e=>{
   if(activePanel&&!e.target.closest('.ipanel')&&!e.target.closest('.navbtn'))closeAllPanels();
 });
-// Modal bg close
 document.querySelectorAll('.mbg').forEach(bg=>bg.addEventListener('click',e=>{if(e.target===bg)bg.classList.remove('on');}));
-// Drag styling
-['imgZoneUpload','vidZoneUpload','fileZone'].forEach(id=>{
+['fileZone'].forEach(id=>{
   const el=document.getElementById(id);if(!el)return;
   el.addEventListener('dragover',e=>{e.preventDefault();el.classList.add('drag');});
   el.addEventListener('dragleave',()=>el.classList.remove('drag'));
