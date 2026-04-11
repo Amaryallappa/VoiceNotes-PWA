@@ -142,7 +142,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .lang-sel{padding:4px 10px;background:var(--s1);border:1px solid var(--b1);border-radius:20px;color:var(--mu2);font-family:'DM Mono',monospace;font-size:10px;outline:none;cursor:pointer;transition:border-color 0.15s;}
 .lang-sel:focus{border-color:var(--b2);}
 
-/* Transcript box — tall, scrollable */
+/* Transcript box */
 .tbox{background:var(--s1);border:1px solid var(--b1);border-radius:var(--rs);padding:11px 13px;min-height:80px;max-height:220px;overflow-y:auto;font-size:13px;line-height:1.75;color:var(--tx);white-space:pre-wrap;word-break:break-word;transition:border-color 0.2s;margin-bottom:10px;scroll-behavior:smooth;}
 .tbox.on{border-color:rgba(255,95,95,0.3);}
 .tbox.paused{border-color:rgba(255,184,48,0.3);}
@@ -151,7 +151,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 /* Pause section divider in transcript */
 .pause-mark{display:inline;color:var(--amb);font-family:'DM Mono',monospace;font-size:11px;opacity:0.7;}
 
-/* Controls — two rows for clean mobile layout */
+/* Controls */
 .ctrl-row1{display:flex;align-items:center;gap:7px;margin-bottom:8px;flex-wrap:wrap;}
 .ctrl-row2{display:flex;align-items:center;gap:7px;justify-content:flex-end;}
 
@@ -163,11 +163,6 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .rdot{width:7px;height:7px;border-radius:50%;background:var(--mu);flex-shrink:0;transition:background 0.2s;}
 .rbtn.rec .rdot{background:var(--red);animation:blink 1s infinite;}
 .rbtn.pau .rdot{background:var(--amb);}
-
-/* Stop button */
-.stop-btn{display:none;padding:9px 16px;border-radius:40px;border:1px solid var(--b2);background:transparent;color:var(--mu2);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;}
-.stop-btn:hover{border-color:var(--b3);color:var(--tx);background:var(--s2);}
-.stop-btn.vis{display:inline-flex;align-items:center;gap:6px;}
 
 /* Timer + status */
 .rtm{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--mu);letter-spacing:0.06em;}
@@ -238,6 +233,7 @@ input.capin::placeholder{color:var(--mu);}
   </div>
   <div class="topbar-right">
     <button class="tb-btn inst" id="instBtn" onclick="triggerInstall()">⬇ Install</button>
+    <button class="tb-btn" onclick="openM('apiSettings')">⚙️</button>
     <button class="tb-btn" onclick="openM('installGuide')">📱</button>
   </div>
 </div>
@@ -273,10 +269,8 @@ input.capin::placeholder{color:var(--mu);}
   <div class="feed" id="feed" style="display:none;"></div>
 </div>
 
-<!-- AUDIO PANEL -->
 <div class="ipanel" id="panel-audio">
   <div class="pinner">
-    <!-- Header: label + language picker -->
     <div class="audio-header">
       <div class="audio-label">
         🎙 Recorder
@@ -295,21 +289,17 @@ input.capin::placeholder{color:var(--mu);}
       </select>
     </div>
 
-    <!-- Transcript box -->
     <div class="tbox" id="tbox"><span class="tph">Tap Record to start. Your speech will appear here live.</span></div>
 
-    <!-- Row 1: Record/Pause/Resume  Stop  Timer  LIVE  ——  word count -->
     <div class="ctrl-row1">
       <button class="rbtn" id="recBtn" onclick="clickRecBtn()">
         <span class="rdot" id="rdot"></span>
-        <span id="recLbl">Record</span>
+        <span id="recLbl">● Record</span>
       </button>
-      <button class="stop-btn" id="stopBtn" onclick="stopRec()">■ Stop</button>
       <span class="rtm" id="rtm">0:00</span>
       <span class="wc-lbl" id="wcLbl"></span>
     </div>
 
-    <!-- Row 2: Clear  Save -->
     <div class="ctrl-row2">
       <button class="btn" onclick="clrTrans()">Clear</button>
       <button class="btn btn-p" onclick="saveTrans()">Save →</button>
@@ -317,7 +307,6 @@ input.capin::placeholder{color:var(--mu);}
   </div>
 </div>
 
-<!-- TEXT PANEL -->
 <div class="ipanel" id="panel-text">
   <div class="pinner">
     <div class="txtrow">
@@ -327,7 +316,6 @@ input.capin::placeholder{color:var(--mu);}
   </div>
 </div>
 
-<!-- IMAGE PANEL -->
 <div class="ipanel" id="panel-image">
   <div class="pinner">
     <div class="plbl">Add image</div>
@@ -341,7 +329,6 @@ input.capin::placeholder{color:var(--mu);}
   </div>
 </div>
 
-<!-- VIDEO PANEL -->
 <div class="ipanel" id="panel-video">
   <div class="pinner">
     <div class="plbl">Add video</div>
@@ -355,7 +342,6 @@ input.capin::placeholder{color:var(--mu);}
   </div>
 </div>
 
-<!-- FILE PANEL -->
 <div class="ipanel" id="panel-file">
   <div class="pinner">
     <div class="plbl">Add file</div>
@@ -400,6 +386,29 @@ input.capin::placeholder{color:var(--mu);}
   </div>
 </div>
 
+<div class="mbg" id="apiSettings">
+  <div class="modal" style="width:360px;">
+    <div class="mtitle">Speech-to-Text API Settings</div>
+    <div style="font-size:12px;color:var(--mu2);margin-bottom:14px;line-height:1.6;">
+      <b>Default:</b> Google Speech API<br>
+      <b>Optional:</b> Use Sarvam AI for better Indian language support
+    </div>
+    <div style="margin-bottom:12px;">
+      <label style="font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:0.1em;display:block;margin-bottom:6px;font-weight:600;">Sarvam API Key</label>
+      <input type="password" id="sarvamKey" placeholder="Paste your Sarvam API key here…" style="width:100%;padding:10px 12px;background:var(--s1);border:1px solid var(--b1);border-radius:var(--rs);font-size:13px;color:var(--tx);font-family:'Syne',sans-serif;outline:none;font-size:12px;">
+      <div style="font-size:11px;color:var(--mu);margin-top:6px;">Get your key at <a href="https://dashboard.sarvam.ai/" target="_blank" style="color:var(--ac);text-decoration:none;cursor:pointer;">dashboard.sarvam.ai</a></div>
+    </div>
+    <div id="apiStatusMsg" style="font-size:11px;color:var(--mu2);padding:8px;background:var(--s1);border-radius:var(--rs);margin-bottom:12px;text-align:center;display:none;"></div>
+    <div class="mbtns" style="display:flex;gap:8px;justify-content:space-between;">
+      <button class="btn" onclick="clearSarvamKey()">🗑 Clear</button>
+      <div style="display:flex;gap:8px;">
+        <button class="btn" onclick="closeM('apiSettings')">Cancel</button>
+        <button class="btn btn-p" onclick="saveSarvamKey()">Save →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="iview" id="iview" onclick="this.classList.remove('on')"><img id="viewImg" src="" alt=""></div>
 <div class="toast" id="toast"></div>
 
@@ -417,6 +426,31 @@ class VDB{
 const db=new VDB();
 let projects=[],curId=localStorage.getItem('vn_p')||null,entries=[],filter='all';
 let pImg=null,pVid=null,pDoc=null,activePanel=null,deferInst=null;
+let sarvamKey=localStorage.getItem('vn_sarvam_key')||null;
+
+/* Sarvam API Key Management */
+function saveSarvamKey(){
+  const keyInput=document.getElementById('sarvamKey');
+  const key=keyInput.value.trim();
+  if(!key){toast('Enter an API key.');return;}
+  localStorage.setItem('vn_sarvam_key',key);
+  sarvamKey=key;
+  const msg=document.getElementById('apiStatusMsg');
+  msg.textContent='✓ Sarvam API key saved';
+  msg.style.background='var(--ac-d)';
+  msg.style.color='var(--ac)';
+  msg.style.display='block';
+  setTimeout(()=>{closeM('apiSettings');},800);
+}
+function clearSarvamKey(){
+  if(!confirm('Delete Sarvam API key? You\'ll use Google API by default.'))return;
+  localStorage.removeItem('vn_sarvam_key');
+  sarvamKey=null;
+  document.getElementById('sarvamKey').value='';
+  toast('API key cleared — using Google API');
+  closeM('apiSettings');
+}
+
 async function init(){
   await db.open();
   projects=await db.getAll('projects');
@@ -424,6 +458,8 @@ async function init(){
   if(curId&&!projects.find(p=>p.id===curId))curId=null;
   if(curId)await loadProj(curId,false);else showNoProj();
   renderDD();
+  /* Load Sarvam key if available */
+  if(sarvamKey)document.getElementById('sarvamKey').value=sarvamKey;
 }
 init();
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferInst=e;document.getElementById('instBtn').style.display='flex';});
@@ -468,37 +504,30 @@ function togglePanel(name){
   if(!already){document.getElementById('panel-'+name).classList.add('show');document.getElementById('nav-'+name).classList.add('open');activePanel=name;if(name==='text')setTimeout(()=>document.getElementById('textIn').focus(),280);}
 }
 function closeAllPanels(){
+  stopRec(); // Safely stop active recording when changing panels
   ['audio','text','image','video','file'].forEach(n=>{document.getElementById('panel-'+n).classList.remove('show');document.getElementById('nav-'+n).classList.remove('open');});activePanel=null;
 }
 
 /* ══════════════════════════════════════════════════════
-   SPEECH ENGINE — Pause/Resume + 30min Watchdog
-   
-   State machine:  idle → recording → paused → recording
-                                    ↓ (stop)
-                                   idle
-   
-   Session ID guard: every (re)start gets a unique sesId.
-   All callbacks check their captured id vs current sesId
-   before writing anything — dead sessions are ignored.
-   
-   Watchdog: polls every 3s. If no onresult/onend activity
-   for 8+ seconds while recording, force-respawns the
-   recognition (handles browser silently killing it).
+   SPEECH ENGINE — Continuous Typist (Google & Sarvam)
    ══════════════════════════════════════════════════════ */
 
-/* 'idle' | 'recording' | 'paused' */
-let recState='idle';
-let accText='';      // all committed final text
-let liveText='';     // current interim
-let sesId=0;         // increments on every (re)start — the guard key
+let recState='idle'; // 'idle' | 'recording' | 'paused'
+let accText='';      
+let liveText='';     
+let sesId=0;         
 let recog=null;
-let tInt=null;       // elapsed timer
+let tInt=null;       
 let elapsed=0;
 let watchdogInt=null;
-let lastActivity=0;  // timestamp of last onresult/onend call — for watchdog
+let lastActivity=0;  
 
-/* Main button click cycles: idle→record, recording→pause, paused→resume */
+/* Sarvam Specific Variables */
+let sarvamStream=null;
+let sarvamRecorder=null;
+let sarvamLoopTimer=null;
+
+/* Main Toggle Button */
 function clickRecBtn(){
   if(recState==='idle') startRec();
   else if(recState==='recording') pauseRec();
@@ -507,45 +536,62 @@ function clickRecBtn(){
 
 function startRec(){
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  if(!SR){toast('❌ Use Chrome/Edge — speech API not available here.');return;}
+  if(!sarvamKey&&!SR){toast('❌ Use Chrome/Edge — speech API not available here.');return;}
   accText='';liveText='';elapsed=0;
   recState='recording';
   _startTimer();
-  _startWatchdog();
-  _spawnSession();
+  if(sarvamKey){
+    _startSarvamRec();
+  } else {
+    _startWatchdog();
+    _spawnSession();
+  }
   _syncUI();
   _updateTbox();
 }
 
 function pauseRec(){
   recState='paused';
-  sesId++;                       // immediately invalidate live callbacks
-  _killRecog();
+  sesId++;                       
+  clearTimeout(sarvamLoopTimer);
+  if(sarvamKey && sarvamRecorder && sarvamRecorder.state !== 'inactive'){
+    sarvamRecorder.stop(); // Flushes final audio chunk to Sarvam
+  } else {
+    _killRecog();
+  }
   if(liveText.trim()){accText+=liveText.trim()+' ';liveText='';}
-  clearInterval(watchdogInt);
-  // insert a visible pause marker into the text
   accText+='[⏸] ';
   _syncUI();
   _updateTbox();
-  // timer keeps running so total time is preserved
 }
 
 function resumeRec(){
   recState='recording';
   lastActivity=Date.now();
-  // remove trailing pause marker for cleaner text
   accText=accText.replace(/\[⏸\]\s*$/,'');
-  _startWatchdog();
-  _spawnSession();
+  if(sarvamKey){
+     _runSarvamChunk(); // Restart the audio looping mechanism
+  } else {
+    _startWatchdog();
+    _spawnSession();
+  }
   _syncUI();
 }
 
 function stopRec(){
+  if(recState==='idle') return;
   recState='idle';
   sesId++;
+  clearTimeout(sarvamLoopTimer);
+  if(sarvamKey && sarvamRecorder && sarvamRecorder.state !== 'inactive'){
+    sarvamRecorder.stop();
+  }
+  if(sarvamStream){
+    sarvamStream.getTracks().forEach(t=>t.stop());
+    sarvamStream=null;
+  }
   _killRecog();
   if(liveText.trim()){accText+=liveText.trim()+' ';liveText='';}
-  // remove trailing pause marker if present
   accText=accText.replace(/\[⏸\]\s*$/,'');
   clearInterval(tInt);
   clearInterval(watchdogInt);
@@ -567,7 +613,6 @@ function _startWatchdog(){
   clearInterval(watchdogInt);
   watchdogInt=setInterval(()=>{
     if(recState!=='recording')return;
-    /* If no activity for 8 seconds, recognition silently died → respawn */
     if(Date.now()-lastActivity>8000){
       lastActivity=Date.now();
       _spawnSession();
@@ -577,7 +622,7 @@ function _startWatchdog(){
 
 function _spawnSession(){
   _killRecog();
-  const thisSes=++sesId;  // capture unique ID for THIS session's closures
+  const thisSes=++sesId;  
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   const r=new SR();
   r.continuous=true;
@@ -587,10 +632,8 @@ function _spawnSession(){
   recog=r;
 
   r.onresult=function(e){
-    if(thisSes!==sesId)return;           // dead session guard
+    if(thisSes!==sesId)return;           
     lastActivity=Date.now();
-    /* Only iterate NEW results from e.resultIndex forward.
-       This is the only place text is written — no duplicates. */
     for(let i=e.resultIndex;i<e.results.length;i++){
       if(e.results[i].isFinal){
         let t=e.results[i][0].transcript;
@@ -607,21 +650,88 @@ function _spawnSession(){
   r.onerror=function(e){
     if(thisSes!==sesId)return;
     lastActivity=Date.now();
-    if(e.error==='no-speech'||e.error==='aborted')return; // harmless — watchdog will restart if needed
-    /* Real error → respawn after short delay */
+    if(e.error==='no-speech'||e.error==='aborted')return; 
     if(recState==='recording')setTimeout(()=>{if(recState==='recording'&&thisSes===sesId)_spawnSession();},500);
   };
 
   r.onend=function(){
     if(thisSes!==sesId)return;
     lastActivity=Date.now();
-    /* Commit any remaining interim text */
     if(liveText.trim()){accText+=(accText.endsWith(' ')?'':' ')+liveText.trim();liveText='';}
-    /* Auto-restart if still recording */
     if(recState==='recording')setTimeout(()=>{if(recState==='recording'&&thisSes===sesId)_spawnSession();},100);
   };
 
   try{r.start();}catch(e){}
+}
+
+/* ═══════════════════════════════════════════════════ */
+/* SARVAM AI - CONTINUOUS CHUNKING LOGIC              */
+/* ═══════════════════════════════════════════════════ */
+
+async function _startSarvamRec(){
+  try{
+    if(!sarvamStream){
+      sarvamStream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}});
+    }
+    lastActivity=Date.now();
+    _runSarvamChunk();
+  }catch(err){
+    toast('❌ Microphone access denied.');
+    recState='idle';
+    _syncUI();
+  }
+}
+
+/* Creates a fresh recorder every 4 seconds so valid WebM headers exist for every API request */
+function _runSarvamChunk(){
+  if(recState!=='recording') return;
+  let chunks=[];
+  sarvamRecorder=new MediaRecorder(sarvamStream,{mimeType:'audio/webm'});
+  sarvamRecorder.ondataavailable=e=>{if(e.data.size>0)chunks.push(e.data);};
+  sarvamRecorder.onstop=async ()=>{
+    const blob=new Blob(chunks,{type:'audio/webm'});
+    if(blob.size>0 && recState!=='idle'){
+      await _sendToSarvam(blob);
+    }
+  };
+  sarvamRecorder.start();
+
+  sarvamLoopTimer=setTimeout(()=>{
+    if(sarvamRecorder && sarvamRecorder.state==='recording'){
+      sarvamRecorder.stop();
+      _runSarvamChunk(); // immediately start the next recorder chunk
+    }
+  }, 4000); // 4-second continuous processing interval
+}
+
+async function _sendToSarvam(audioBlob){
+  if(!sarvamKey||!audioBlob.size)return;
+  try{
+    const formData=new FormData();
+    formData.append('file',audioBlob,'audio.webm');
+    formData.append('language_code',document.getElementById('langSel').value);
+    const resp=await fetch('https://api.sarvam.ai/speech-to-text',{
+      method:'POST',
+      headers:{'api-subscription-key':sarvamKey},
+      body:formData
+    });
+    if(!resp.ok){
+      if(resp.status===403)toast('❌ Invalid Sarvam API key');
+      else if(resp.status===429)toast('⚠️ API rate limit reached');
+      else toast('❌ Sarvam API error: '+resp.status);
+      return;
+    }
+    const data=await resp.json();
+    if(data.transcript){
+      const txt=data.transcript.trim();
+      if(txt&&!accText.endsWith(' '))accText+=' ';
+      accText+=txt;
+      lastActivity=Date.now();
+      _updateTbox();
+    }
+  }catch(err){
+    console.warn('Sarvam API call failed:',err);
+  }
 }
 
 function _syncUI(){
@@ -629,32 +739,25 @@ function _syncUI(){
   const isPau=recState==='paused';
   const isActive=isRec||isPau;
 
-  /* Main button */
   const btn=document.getElementById('recBtn');
   const lbl=document.getElementById('recLbl');
   btn.className='rbtn'+(isRec?' rec':isPau?' pau':'');
+  
+  /* Dynamic Main Button Labels */
   lbl.textContent=isRec?'⏸ Pause':isPau?'▶ Resume':'● Record';
   document.getElementById('rdot').style.background=isRec?'var(--red)':isPau?'var(--amb)':'';
 
-  /* Stop button */
-  const sb=document.getElementById('stopBtn');
-  sb.className='stop-btn'+(isActive?' vis':'');
-
-  /* Timer */
   const tm=document.getElementById('rtm');
   tm.className='rtm'+(isRec?' on':isPau?' pau':'');
   if(!isActive)tm.textContent='0:00';
 
-  /* Live / Paused pills */
   document.getElementById('lpill').classList.toggle('on',isRec);
   document.getElementById('ppill').classList.toggle('on',isPau);
 
-  /* Tbox border */
   const tb=document.getElementById('tbox');
   tb.classList.toggle('on',isRec);
   tb.classList.toggle('paused',isPau);
 
-  /* Nav button state */
   document.getElementById('nav-audio').classList.toggle('rec-on',isRec);
   document.getElementById('nav-audio').classList.toggle('pau-on',isPau);
 }
@@ -668,17 +771,18 @@ function _updateTbox(){
     tb.textContent=full;
     tb.scrollTop=tb.scrollHeight;
   }
-  /* Word count — count accText only (finalized words) */
   const wc=accText.trim().split(/\s+/).filter(w=>w.length>0).length;
   document.getElementById('wcLbl').textContent=wc>0?wc+' words':'';
 }
 
 function clrTrans(){
+  stopRec();
   accText='';liveText='';
   _updateTbox();
   document.getElementById('wcLbl').textContent='';
 }
 async function saveTrans(){
+  stopRec();
   const txt=(accText+liveText).replace(/\[⏸\]\s*/g,' ').trim();
   if(!txt){toast('Nothing to save.');return;}
   await addEntry({type:'audio',content:txt});
